@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_15_101114) do
+ActiveRecord::Schema.define(version: 2021_10_15_121257) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -31,6 +31,18 @@ ActiveRecord::Schema.define(version: 2021_10_15_101114) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_companies_on_email", unique: true
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
+  end
+
+  create_table "products", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.string "pd_name", null: false
+    t.text "pd_info", null: false
+    t.integer "pd_category_id", null: false
+    t.integer "pd_stock", null: false
+    t.integer "pd_review_reward", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_products_on_company_id"
   end
 
   create_table "testers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -57,4 +69,5 @@ ActiveRecord::Schema.define(version: 2021_10_15_101114) do
     t.index ["reset_password_token"], name: "index_testers_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "products", "companies"
 end

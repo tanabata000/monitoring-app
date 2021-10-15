@@ -48,7 +48,7 @@
 | pd_name          | string     | null: false                    |
 | pd_info          | text       | null: false                    |
 | pd_category_id   | integer    | null: false                    |
-| pd_stock         | string     | null: false                    |
+| pd_stock         | integer    | null: false                    |
 | pd_review_reward | integer    | null: false                    |
 ### Association
 - belongs_to :company

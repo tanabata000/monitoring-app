@@ -1,0 +1,45 @@
+<%# CSS・・・assets/stylesheets/shared/header.css %>
+<header class='top-page-header'>
+  <div class='search-bar-contents'>
+    <%#= link_to image_tag("furima-logo-color.png", class:"furima-icon"), "/" %> 
+    <form class="search-form" action="#">
+      <input class='input-box' placeholder='キーワードから探す'>
+      <button class="search-button">
+        <%# <%= image_tag "search.png", class:"search-icon" %> %>
+      </button>
+    </form>
+  </div>
+  <div class='nav'>
+    <ul class='lists-left'>
+      <li><%= link_to 'カテゴリー', "#", class: "category-list" %></li>
+      <li><%= link_to 'ブランド', "#", class: "brand-list" %></li>
+    </ul>
+    
+    <ul class='lists-tester'>
+    <p class='tester_account'>テスター専用</p>
+      <%# ログイン状態：ニックネーム & ログアウト表示%>
+      <% if tester_signed_in? %>
+        <li><%#= link_to current_user.nickname, new_user_registration_path, class: "user-nickname" %></li>
+        <li><%#= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+      <%# 未ログイン状態：ログイン & 新規作成表示%>
+      <% else %>
+        <li><%= link_to 'ログイン', new_tester_session_path, method: :get, class: "login" %></li>
+        <li><%= link_to '新規登録', new_tester_registration_path, method: :get, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+    
+    <ul class='lists-company'>
+    <p class='company_account'>企業専用</p>
+      <%# ログイン状態：ニックネーム & ログアウト表示%>
+      <% if company_signed_in? %>
+        <li><%#= link_to current_user.nickname, new_user_registration_path, class: "user-nickname" %></li>
+        <li><%#= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+      <%# 未ログイン状態：ログイン & 新規作成表示%>
+      <% else %>
+        <li><%= link_to 'ログイン', new_company_session_path, method: :get, class: "login" %></li>
+        <li><%= link_to '新規登録', new_company_registration_path, method: :get, class: "sign-up" %></li>
+      <% end %>
+    </ul>
+
+  </div>
+</header>
