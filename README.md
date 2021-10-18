@@ -45,6 +45,7 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | company          | references | null: false, foreign_key: true |
+| tester           | references | null: false, foreign_key: true |
 | pd_name          | string     | null: false                    |
 | pd_info          | text       | null: false                    |
 | pd_category_id   | integer    | null: false                    |
