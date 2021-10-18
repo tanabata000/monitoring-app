@@ -1,0 +1,29 @@
+ <%= form_with model: @product, local: true do |f|%>
+     <div class="field">
+       <%= f.label :pd_name, "製品名" %><br />
+       <%= f.text_field :pd_name, id:"pd-name" %>
+     </div>
+     <div class="field">
+       <%= f.label :pd_image, "製品の画像" %><br />
+       <%= f.file_field :pd_image, id:"pd-image" %>
+     </div>
+     <div class="field">
+       <%= f.label :pd_info, "製品説明" %><br />
+       <%= f.text_field :pd_info, id:"pd-info" %>
+     </div>
+     <div class="field">
+       <%= f.label :pd_category, "カテゴリー" %><br />
+       <%= f.collection_select(:pd_category_id, PdCategory.all, :id, :name, {}, {class:"select-box", id:"pd-category"}) %>
+     </div>
+     <div class="field">
+       <%= f.label :pd_stock, "出品数" %><br />
+       <%= f.text_field :pd_stock, id:"pd-stock" %>
+     </div>
+     <div class="field">
+       <%= f.label :pd_review_reward, "評価報酬額（500¥〜）" %><br />
+       <%= f.text_field :pd_review_reward, id:"pd-review-reward" %>
+     </div>
+     <div class="actions">
+       <%= f.submit "保存する", class: :form__btn  %>
+     </div>
+  <% end %>
