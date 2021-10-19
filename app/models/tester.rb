@@ -1,7 +1,8 @@
 class Tester < ApplicationRecord
   has_many :reviews
   has_many :tester_ranks
-
+  has_one :test_product_info
+  
   # ActiveHashのアソシエーション設定
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
@@ -32,7 +33,7 @@ class Tester < ApplicationRecord
     validates :first_name_kana
     validates :birth_date
     validates :sex_id
-    validates :postal_code_id
+    validates :postal_code
     validates :city
     validates :address
     validates :phone_number

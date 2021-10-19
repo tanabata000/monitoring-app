@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_17_065943) do
+ActiveRecord::Schema.define(version: 2021_10_19_080322) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_065943) do
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
-    t.string "building", null: false
+    t.string "building"
     t.integer "phone_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -66,6 +66,25 @@ ActiveRecord::Schema.define(version: 2021_10_17_065943) do
     t.index ["company_id"], name: "index_products_on_company_id"
   end
 
+  create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "test_product_info_id", null: false
+    t.text "good_review", null: false
+    t.text "bad_review", null: false
+    t.text "opinions_requests"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["test_product_info_id"], name: "index_reviews_on_test_product_info_id"
+  end
+
+  create_table "test_product_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "product_id", null: false
+    t.bigint "tester_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_test_product_infos_on_product_id"
+    t.index ["tester_id"], name: "index_test_product_infos_on_tester_id"
+  end
+
   create_table "testers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -75,11 +94,12 @@ ActiveRecord::Schema.define(version: 2021_10_17_065943) do
     t.string "last_name_kana", null: false
     t.string "first_name_kana", null: false
     t.integer "sex_id", null: false
+    t.date "birth_date", null: false
     t.integer "postal_code", null: false
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
-    t.string "building", null: false
+    t.string "building"
     t.integer "phone_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
@@ -92,4 +112,7 @@ ActiveRecord::Schema.define(version: 2021_10_17_065943) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "companies"
+  add_foreign_key "reviews", "test_product_infos"
+  add_foreign_key "test_product_infos", "products"
+  add_foreign_key "test_product_infos", "testers"
 end

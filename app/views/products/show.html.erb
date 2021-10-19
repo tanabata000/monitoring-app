@@ -1,0 +1,70 @@
+
+<%# 商品の概要 %>
+<div class="item-show">
+  <div class="item-box">
+    <h2 class="name">
+      <%= @product.pd_name %>
+    </h2>
+    <div class="item-img-content">
+      <%= image_tag @product.pd_image ,class:"item-box-img" %>
+      
+      <div class="sold-out">
+      <%# 商品が売れている場合は、sold outを表示 %>
+      <%# if @product.test_product_info.tester_id == current_tester %>
+        <%# <span>Sold Out!!</span> %>
+      <%# end %>
+      </div>    
+
+    </div>
+    <div class="item-price-box">
+      <span class="item-price">
+        ¥ <%= @product.pd_review_reward %>
+      </span>
+      <span class="item-postage">
+        <%= @product.company.company_name %>
+      </span>
+    </div>
+  
+      <%# テスターがログイン状態 & テスターがまだテストしたことがない場合 %>
+      <% if tester_signed_in? && @product.test_product_info.present? == false %>
+        <%= link_to "テスト申請画面に進む", new_product_test_product_info_path(@product.id), method: :get, class:"product-red-btn"%>
+        <p class="or-text"></p>
+        <%# 現在のユーザーが出品者の場合 %>
+        <% if current_company == @product.company %>
+          <%= link_to "商品の編集", edit_product_path, method: :get, class: "product-red-btn" %>
+          <p class="or-text">or</p>
+          <%= link_to "削除", product_path(@product.id,), method: :delete, class:"product-destroy" %>
+          <%# 現在のユーザーが出品者でない場合 %>
+        <% end %>
+      <% end %>
+
+      <%# テスターがテスト中 & 評価締め切り前の場合 %>
+      <% if @product.test_product_info.present? == true && @product.test_product_info.tester_id == current_tester.id %>
+        <%= link_to "評価する", new_test_product_info_review_path(@test_product_info.id), method: :get, class:"product-red-btn"%>
+        <p class="or-text"></p>
+      <% end %>
+
+    <div class="item-explain-box">
+      <span><%= @product.pd_info %></span>
+    </div>
+    <table class="detail-table">
+      <tbody>
+        <tr>
+          <th class="detail-item">企業</th>
+          <td class="detail-value"><%= @product.company.company_name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">カテゴリー</th>
+          <td class="detail-value"><%= @product.pd_category.name %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">予定テスター数</th>
+          <td class="detail-value"><%= @product.pd_stock %></td>
+        </tr>
+        <tr>
+          <th class="detail-item">募集締め切りまでの人数</th>
+          <td class="detail-value"><%= @product_count %></td>
+        </tr>
+       
+      </tbody>
+

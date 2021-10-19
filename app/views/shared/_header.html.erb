@@ -19,7 +19,7 @@
     <p class='tester_account'>テスター専用</p>
       <%# ログイン状態：ニックネーム & ログアウト表示%>
       <% if tester_signed_in? %>
-        <li><%= link_to current_tester.nickname, new_tester_registration_path, class: "user-nickname" %></li>
+        <li><%= link_to "#{current_tester.nickname}", tester_path(current_tester.id), class: "user-nickname" %></li>
         <li><%= link_to 'ログアウト', destroy_tester_session_path, method: :delete, class: "logout" %></li> 
       <%# 未ログイン状態：ログイン & 新規作成表示%>
       <% else %>
@@ -32,7 +32,7 @@
     <p class='company_account'>企業専用</p>
       <%# ログイン状態：ニックネーム & ログアウト表示%>
       <% if company_signed_in? %>
-        <li><%= link_to current_company.company_name, new_company_registration_path, class: "user-nickname" %></li>
+        <li><%= link_to "#{current_company.company_name}", company_path(current_company.id), class: "user-nickname" %></li>
         <li><%= link_to 'ログアウト', destroy_company_session_path, method: :delete, class: "logout" %></li> 
       <%# 未ログイン状態：ログイン & 新規作成表示%>
       <% else %>

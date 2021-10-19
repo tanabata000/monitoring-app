@@ -16,5 +16,12 @@ Rails.application.routes.draw do
   
 
   root to: "products#index"
-  resources :products
+  resources :testers
+  resources :companies
+  resources :products do
+    resources :test_product_infos
+  end
+  resources :test_product_infos do
+    resources :reviews, only: [:new, :create, :edit, :update ]
+  end
 end

@@ -12,7 +12,7 @@
 | prefecture_id      | integer | null: false              |
 | city               | string  | null: false              |
 | address            | string  | null: false              |
-| building           | string  | null: false              |
+| building           | string  |                          |
 | phone_number       | integer | null: false              |
 ### Association
 - has_many :products
@@ -34,11 +34,12 @@
 | prefecture_id      | integer | null: false              |
 | city               | string  | null: false              |
 | address            | string  | null: false              |
-| building           | string  | null: false              |
+| building           | string  |                          |
 | phone_number       | integer | null: false              |
 ### Association
 - has_many :reviews
 - has_many :tester_ranks
+- has_one :test_product_info
 
 
 ## products テーブル
@@ -54,27 +55,36 @@
 ### Association
 - belongs_to :company
 - has_many :reviews
+- has_one :test_product_info
+
+
+## test_product_infos テーブル
+| Column           | Type       | Options                        |
+| ---------------- | ---------- | ------------------------------ |
+| product          | references | null: false, foreign_key: true |
+| tester           | references | null: false, foreign_key: true |
+### Association
+- has_many :products
+- has_many :testers
+- has_one :review
 
 
 ## reviews テーブル
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| product            | references | null: false                    |
-| user               | references | null: false, foreign_key: true |
-| evaluation point   | integer    | null: false                    |
+| test_product_info  | references | null: false, foreign_key: true |
 | good_review        | text       | null: false                    |
 | bad_review         | text       | null: false                    |
-| review_category_id | integer    | null: false                    |
+| opinions_requests  | text       | null: false                    |
 ### Association
-- belongs_to :tester
+- belongs_to :test_product_info
 - belongs_to :product
 
 
-## tester_ranks テーブル
+## review_closes テーブル
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| tester            | references | null: false, foreign_key: true |
-| rank_id           | integer    | null: false, foreign_key: true |
-| point             | integer    | null: false, foreign_key: true |
+| review            | references | null: false, foreign_key: true |
+| product           | references | null: false, foreign_key: true |
 ### Association
 - belongs_to :tester

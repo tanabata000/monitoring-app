@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
   def configure_tester_permitted_parameters
     devise_parameter_sanitizer.permit(:sign_up,
-                                      keys: [:nickname, :last_name, :last_name_kana, :first_name, :first_name_kana, :sex_id, :postal_code, :prefecture_id, :city, :address, :building, :phone_number])
+                                      keys: [:nickname, :last_name, :last_name_kana, :first_name, :first_name_kana, :sex_id, :birth_date, :postal_code, :prefecture_id, :city, :address, :building, :phone_number])
   end
 
 end

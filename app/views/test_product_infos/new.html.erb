@@ -1,0 +1,5 @@
+<%= form_with model: @test_product_info, url: product_test_product_infos_path, method: :post, class: 'test_request', local: true do |f| %>
+  <div>
+    <%= f.submit "テスト申請", class: :form__btn  %>
+  </div>
+<% end %>
