@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :test_product_infos
   end
   resources :test_product_infos do
-    resources :reviews, only: [:new, :create, :edit, :update ]
+    resources :reviews
+    resources :review_on_reviews, only: [:index, :new, :create]
   end
 end

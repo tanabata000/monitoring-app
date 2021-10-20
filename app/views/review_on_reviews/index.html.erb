@@ -1,0 +1,10 @@
+<%# 製品一覧表示 %>
+<% if @reviews.present? == true %>
+  <% @reviews.each do |review| %>
+        <li class='list'>            
+          <%# 商品詳細画面に遷移 %>
+          <%= link_to "#{@test_product_info.tester.nickname}さんの評価", new_test_product_info_review_on_review_path(@test_product_info.id), method: :get %>
+          
+        </li> 
+  <% end %>
+<% end %>

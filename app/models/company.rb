@@ -1,6 +1,6 @@
 class Company < ApplicationRecord
   has_many :products
-  has_many :tester_ranks
+  has_many :review_on_reviws
   
   # ActiveHashのアソシエーション設定
   extend ActiveHash::Associations::ActiveRecordExtensions

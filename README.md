@@ -16,7 +16,7 @@
 | phone_number       | integer | null: false              |
 ### Association
 - has_many :products
-- has_many :tester_ranks
+- has_many :review_on_reviws
 
 
 ## testers テーブル
@@ -38,8 +38,9 @@
 | phone_number       | integer | null: false              |
 ### Association
 - has_many :reviews
-- has_many :tester_ranks
+- has_many :review_on_reviws
 - has_one :test_product_info
+
 
 
 ## products テーブル
@@ -73,12 +74,25 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | test_product_info  | references | null: false, foreign_key: true |
+| product            | references | null: false, foreign_key: true |
+| tester             | references | null: false, foreign_key: true |
 | good_review        | text       | null: false                    |
 | bad_review         | text       | null: false                    |
 | opinions_requests  | text       | null: false                    |
 ### Association
 - belongs_to :test_product_info
 - belongs_to :product
+
+
+## review_on_reviws テーブル
+| Column             | Type       | Options                        |
+| ------------------ | ---------- | ------------------------------ |
+| company            | references | null: false, foreign_key: true |
+| tester             | references | null: false, foreign_key: true |
+| review_on_review_id| integer    | null: false                    |
+### Association
+- belongs_to :company
+- belongs_to :tester
 
 
 ## review_closes テーブル

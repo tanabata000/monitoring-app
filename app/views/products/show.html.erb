@@ -26,17 +26,26 @@
     </div>
   
       <%# テスターがログイン状態 & テスターがまだテストしたことがない場合 %>
-      <% if tester_signed_in? && @product.test_product_info.present? == false %>
-        <%= link_to "テスト申請画面に進む", new_product_test_product_info_path(@product.id), method: :get, class:"product-red-btn"%>
-        <p class="or-text"></p>
-        <%# 現在のユーザーが出品者の場合 %>
-        <% if current_company == @product.company %>
-          <%= link_to "商品の編集", edit_product_path, method: :get, class: "product-red-btn" %>
-          <p class="or-text">or</p>
-          <%= link_to "削除", product_path(@product.id,), method: :delete, class:"product-destroy" %>
-          <%# 現在のユーザーが出品者でない場合 %>
-        <% end %>
+      <% if tester_signed_in? %>
+        <%#if @product.test_product_info.tester.id != current_tester  %>
+          <%= link_to "テスト申請画面に進む", new_product_test_product_info_path(@product.id), method: :get, class:"product-red-btn"%>
+          <p class="or-text"></p>
+          <%# 現在のユーザーが出品者の場合 %>
+          <% if current_company == @product.company %>
+            <%= link_to "商品の編集", edit_product_path, method: :get, class: "product-red-btn" %>
+            <p class="or-text">or</p>
+            <%= link_to "削除", product_path(@product.id,), method: :delete, class:"product-destroy" %>
+            <%# 現在のユーザーが出品者でない場合 %>
+          <% end %>
+        <%# end %>
+       <% end %>
+
+
+      <%# 製品出品企業のみレビューを見れる %>
+      <% if current_company = @product.company_id %>
+        <%= link_to "レビュー評価ページ", test_product_info_review_on_reviews_path(@test_product_info), method: :get, class:"product-red-btn"%>
       <% end %>
+
 
       <%# テスターがテスト中 & 評価締め切り前の場合 %>
       <% if @product.test_product_info.present? == true && @product.test_product_info.tester_id == current_tester.id %>

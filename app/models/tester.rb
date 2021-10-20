@@ -1,6 +1,6 @@
 class Tester < ApplicationRecord
   has_many :reviews
-  has_many :tester_ranks
+  has_many :review_on_reviws
   has_one :test_product_info
   
   # ActiveHashのアソシエーション設定

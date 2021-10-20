@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_19_080322) do
+ActiveRecord::Schema.define(version: 2021_10_20_050434) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -66,14 +66,28 @@ ActiveRecord::Schema.define(version: 2021_10_19_080322) do
     t.index ["company_id"], name: "index_products_on_company_id"
   end
 
+  create_table "review_on_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "company_id", null: false
+    t.bigint "tester_id", null: false
+    t.integer "review_on_review", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_review_on_reviews_on_company_id"
+    t.index ["tester_id"], name: "index_review_on_reviews_on_tester_id"
+  end
+
   create_table "reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "test_product_info_id", null: false
+    t.bigint "product_id", null: false
+    t.bigint "tester_id", null: false
     t.text "good_review", null: false
     t.text "bad_review", null: false
     t.text "opinions_requests"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
     t.index ["test_product_info_id"], name: "index_reviews_on_test_product_info_id"
+    t.index ["tester_id"], name: "index_reviews_on_tester_id"
   end
 
   create_table "test_product_infos", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -112,7 +126,11 @@ ActiveRecord::Schema.define(version: 2021_10_19_080322) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "companies"
+  add_foreign_key "review_on_reviews", "companies"
+  add_foreign_key "review_on_reviews", "testers"
+  add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "test_product_infos"
+  add_foreign_key "reviews", "testers"
   add_foreign_key "test_product_infos", "products"
   add_foreign_key "test_product_infos", "testers"
 end

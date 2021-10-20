@@ -24,6 +24,7 @@ class ProductsController < ApplicationController
   def show
     @product = Product.find(params[:id])
     @tester = current_tester
+    # @test_product_infos = TestProductInfo.find(@product.id )
     @test_product_info = TestProductInfo.find_by(product_id:@product.id, tester_id:@tester.id )
   end
 

@@ -1,0 +1,11 @@
+ @review = Review.find(params[:id])
+    @test_product_info = TestProductInfo.find(@review.test_product_info_id)
+
+<%# 製品一覧表示 %>
+<% @reviews.each do |review| %>
+      <li class='list'>            
+        <%# 商品詳細画面に遷移 %>
+        <%= link_to "#{reviw.test_product_info.tester.nickname}さんの評価", product_path(product.id),method: :get do %>
+        <% end %>
+      </li> 
+<% end %>
