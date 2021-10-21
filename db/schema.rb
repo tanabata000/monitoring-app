@@ -68,11 +68,13 @@ ActiveRecord::Schema.define(version: 2021_10_20_050434) do
 
   create_table "review_on_reviews", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "company_id", null: false
+    t.bigint "review_id", null: false
     t.bigint "tester_id", null: false
-    t.integer "review_on_review", null: false
+    t.integer "review_category_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["company_id"], name: "index_review_on_reviews_on_company_id"
+    t.index ["review_id"], name: "index_review_on_reviews_on_review_id"
     t.index ["tester_id"], name: "index_review_on_reviews_on_tester_id"
   end
 
@@ -127,6 +129,7 @@ ActiveRecord::Schema.define(version: 2021_10_20_050434) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "products", "companies"
   add_foreign_key "review_on_reviews", "companies"
+  add_foreign_key "review_on_reviews", "reviews"
   add_foreign_key "review_on_reviews", "testers"
   add_foreign_key "reviews", "products"
   add_foreign_key "reviews", "test_product_infos"

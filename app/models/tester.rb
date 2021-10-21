@@ -1,7 +1,7 @@
 class Tester < ApplicationRecord
   has_many :reviews
   has_many :review_on_reviws
-  has_one :test_product_info
+  has_many :test_product_info
   
   # ActiveHashのアソシエーション設定
   extend ActiveHash::Associations::ActiveRecordExtensions

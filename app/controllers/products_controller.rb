@@ -26,6 +26,9 @@ class ProductsController < ApplicationController
     @tester = current_tester
     # @test_product_infos = TestProductInfo.find(@product.id )
     @test_product_info = TestProductInfo.find_by(product_id:@product.id, tester_id:@tester.id )
+    @test_product_infos = TestProductInfo.where(product_id:@product.id )
+    @review = Review.find_by(test_product_info: @test_product_info)
+    @product_count = @product.pd_stock - @test_product_infos.count
   end
 
   private
