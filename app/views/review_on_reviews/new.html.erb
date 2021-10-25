@@ -1,37 +1,37 @@
+<div class="review-main">
+<%= form_with model: @review_on_review, url: test_product_info_review_on_reviews_path, method: :post, class: 'registration-main', local: true do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
+  <%= "#{@tester.nickname}さんの評価" %>
 
-<div class="main">
-  <div class="inner">
-    <div class="user__wrapper">
-      <h2 class="page-heading">
-         <%= "#{@tester.nickname}さんの評価" %>
-      </h2>
-      <table class="table">
-        <tbody>
-          <tr>
-            <th class="table__col1">良い評価</th>
-            <td class="table__col2"><%= @review.good_review %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">悪い評価</th>
-            <td class="table__col2"><%= @review.bad_review %></td>
-          </tr>
-          <tr>
-            <th class="table__col1">意見・要望</th>
-            <td class="table__col2"><%= @review.opinions_requests %></td>
-          </tr>
-        </tbody>
-      </table>
+    <table class="table">
+      <tbody>
+        <div class="weight-bold-text">良い点
+        <span class="indispensable">必須</span>
+        </div>
+        <div class="review_text"><%= @review.good_review %></div>
+        
+                  
+        <div class="weight-bold-text">悪い点
+        <span class="indispensable">必須</span>
+        </div>
+        <div class="review_text"><%= @review.bad_review %></div>
+      
+        <div class="weight-bold-text">意見・要望
+        <span class="indispensable">必須</span>
+        </div>
+        <div class="review_text"><%= @review.opinions_requests %></div>
+      </tbody>
+    </table>
+
       <div class='form-text-wrap'>
         <label class="form-text"><%= "#{@tester.nickname}さんのレビュー評価"%></label>
       </div>
-      <%= form_with model: @review_on_review, url: test_product_info_review_on_reviews_path, method: :post, class: 'registration-main', local: true do |f| %>
+      
         <div class='input-name-wrap'>
           <%= f.collection_select(:review_category_id, ReviewCategory.all, :id, :name,  {}, {class:"select-box", id:"review_category"}) %>
         </div>
-        <div class="actions">
-          <%= f.submit "Sign up" %>
+        <div>
+          <%= f.submit "評価する", class: "review_on_rebiew_bk-btn" %>
         </div>
       <% end %> 
-    </div>
-  </div>
 </div>

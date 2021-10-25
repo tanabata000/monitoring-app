@@ -1,9 +1,16 @@
-
+<div class="review_on_review-show_top">
+<%= link_to "優良評価", "#", method: :get, class: 'good_tester_list' %>
+<%= link_to "通常評価", "#", method: :get, class: 'good_tester_list' %>
+</div>
+<div class="unassessed_review_list">
+  未評価レビューリスト
+</div>
 <% @reviews.each do |review| %>
   <%# レビュー未評価の場合 %>
   <% unless ReviewOnReview.exists?(review_id: review.id) %>
-    <li class='list'>            
-      <%= link_to "#{@test_product_info.tester.nickname}さんの評価", new_test_product_info_review_on_review_path(@test_product_info.id), method: :get %>        
-    </li> 
+    <div class='review_tester_list'>            
+      <%= link_to "#{@test_product_info.tester.nickname}さんの評価", new_test_product_info_review_on_review_path(@test_product_info.id), method: :get, class: 'review_tester'%>        
+    </div> 
   <% end %>
 <% end %>
+

@@ -4,6 +4,7 @@ class ProductsController < ApplicationController
   def index
     query = "SELECT * FROM products ORDER BY created_at DESC"
     @products = Product.find_by_sql(query)
+    # @product = Product.where(tester_id:current_tester.id )
   end
 
   def new

@@ -30,6 +30,7 @@
 | last_name_kana     | string  | null: false              |
 | first_name_kana    | string  | null: false              |
 | sex_id             | integer | null: false              |
+| birth_date_id      | integer | null: false              |
 | postal_code        | integer | null: false              |
 | prefecture_id      | integer | null: false              |
 | city               | string  | null: false              |
@@ -47,7 +48,6 @@
 | Column           | Type       | Options                        |
 | ---------------- | ---------- | ------------------------------ |
 | company          | references | null: false, foreign_key: true |
-| tester           | references | null: false, foreign_key: true |
 | pd_name          | string     | null: false                    |
 | pd_info          | text       | null: false                    |
 | pd_category_id   | integer    | null: false                    |
@@ -88,17 +88,9 @@
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
 | company            | references | null: false, foreign_key: true |
+| review_category    | references | null: false, foreign_key: true |
 | tester             | references | null: false, foreign_key: true |
 | review_on_review_id| integer    | null: false                    |
 ### Association
 - belongs_to :company
-- belongs_to :tester
-
-
-## review_closes テーブル
-| Column            | Type       | Options                        |
-| ----------------- | ---------- | ------------------------------ |
-| review            | references | null: false, foreign_key: true |
-| product           | references | null: false, foreign_key: true |
-### Association
 - belongs_to :tester

@@ -5,4 +5,8 @@ class ReviewOnReview < ApplicationRecord
 
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :review_category
+  
+  # バリデーション
+  validates :review_category_id, presence: true
+  validates :review_category_id, numericality: { other_than: 1}
 end

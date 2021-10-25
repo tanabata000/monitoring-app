@@ -3,13 +3,15 @@
 }
 
 .top-page-header {
-  width: 100vw;
-  padding: 2vh 15vw;
+  width: 100%;
+  padding: 2% 15%;
   display: flex;
   flex-direction: column;
+  background-color: rgb(15, 15, 15);
 }
 
 .search-bar-contents {
+  width: 50vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -24,11 +26,11 @@
   width: 65vw;
   height: 5vh;
   display: flex;
-  margin-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .search-form>.input-box {
-  width: 100%;
+  width: 100vw;
   height: 5vh;
   padding-left: 10px;
 }
@@ -37,7 +39,7 @@
   width: 5vh;
   border: 0;
   cursor: pointer;
-  background-color: #3ccace;
+  background-color: #ce3c48;
   padding: 8px;
 }
 
@@ -63,42 +65,53 @@
 .category-list {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: #ffffff;
 }
 
 .brand-list {
   text-decoration: none;
-  color: #333333;
+  color: #ffffff;
 }
+
+
 
 .lists-right {
   display: flex;
   list-style: none;
   align-items: flex-end;
+  justify-content:space-around;
 }
 
+.tester_account {
+  color: #ffffff;
+  margin: 0 2vw 0 0;
+}
+
+.company_account {
+  color: #ffffff;
+}
 
 .user-nickname {
   text-decoration: none;
   margin-right: 3vw;
-  color: #333333;
+  color: #5fb426;
   font-weight: bold;
 }
 
 
 .logout {
   text-decoration: none;
-  color: #333333;
+  color: #5fb426;
 }
 
 .login {
   text-decoration: none;
   line-height: 32px;
   margin-right: 3vw;
-  color: #333333;
+  color: #ffffff;
 }
 
 .sign-up {
   text-decoration: none;
-  color: #333333;
+  color: #ffffff;
 }

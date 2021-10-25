@@ -1,29 +1,46 @@
 <%= render "shared/header" %>
 <%# 説明文 %>
-<h1>Products#index</h1>
-<p>Find me in app/views/products/index.html.erb</p>
+<div class='title-contents'>
+    <h2 class='service-title'>
+      良質な製品開発のために
+    </h2>
+    <p class='service-explain'>
+      TEISTINGはより良い製品開発のための
+    </p>
+    <p class='service-explain'>
+      モニタリングアプリです
+    </p>
+    <div class='store-btn'>
+      <%= link_to image_tag("app-store.svg", class:"apple-btn"), "#" %>
+      <%= link_to image_tag("google-play.png", class:"google-btn"), "#" %>
+    </div>
+  </div>
 <%# /説明文 %>
-
+<div class='item-contents'>
+    <h2 class='title'>開発中の製品一覧</h2>
+    <div class="subtitle" >
+      テスター募集製品
+    </div>
 <%# 製品一覧表示 %>
-<% @products.each do |product| %>
-  <%# if product.present? == true %>
-    <%# if @products.pd_stock =! 0 %>
-      <li class='list'>            
-        <%# 商品詳細画面に遷移 %>
-        <%= link_to product_path(product.id),method: :get do %>
-          <div class='product-img-content'>
-            <%# 商品の画像を表示 %>
-            <%= image_tag product.pd_image,class: "pd-img" %>
-            <%# 商品購入済みの場合sold outを表示 %>
-            <%# if product.tester.present? == true%>
-              <div class='test-out'>
-                <span>テスト済み!!</span>
-              </div>
-            <%# end %>
-        <% end %>
-    <%# end %>
-  <%# end %>
-<% end %>
+<ul class='item-lists'>
+  <% if @products.present? == true %>
+      <% @products.each do |product| %>       
+          <li class = 'list'>            
+            <%# 商品詳細画面に遷移 %>
+            <%= link_to product_path(product.id),method: :get do %>
+              <div class='product-img-content'>
+                <%# 商品の画像を表示 %>
+                <%= image_tag product.pd_image,class: "pd-img" %>
+                <%# テスト開始済みの場合Test outを表示 %>
+                <% if TestProductInfo.exists?(product_id: product, tester_id: current_tester) %>
+                  <div class='test-out'>
+                    <span>テスト済み!!</span>
+                  </div>
+                <% end %>
+            <% end %>
+      <% end %>
+  <% end %>
+</ul>
 
 <%# /製品一覧表示 %>
 

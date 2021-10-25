@@ -1,29 +1,89 @@
- <%= form_with model: @product, local: true do |f|%>
-     <div class="field">
-       <%= f.label :pd_name, "製品名" %><br />
-       <%= f.text_field :pd_name, id:"pd-name" %>
-     </div>
-     <div class="field">
-       <%= f.label :pd_image, "製品の画像" %><br />
-       <%= f.file_field :pd_image, id:"pd-image" %>
-     </div>
-     <div class="field">
-       <%= f.label :pd_info, "製品説明" %><br />
-       <%= f.text_field :pd_info, id:"pd-info" %>
-     </div>
-     <div class="field">
-       <%= f.label :pd_category, "カテゴリー" %><br />
-       <%= f.collection_select(:pd_category_id, PdCategory.all, :id, :name, {}, {class:"select-box", id:"pd-category"}) %>
-     </div>
-     <div class="field">
-       <%= f.label :pd_stock, "出品数" %><br />
-       <%= f.text_field :pd_stock, id:"pd-stock" %>
-     </div>
-     <div class="field">
-       <%= f.label :pd_review_reward, "評価報酬額（500¥〜）" %><br />
-       <%= f.text_field :pd_review_reward, id:"pd-review-reward" %>
-     </div>
-     <div class="actions">
-       <%= f.submit "保存する", class: :form__btn  %>
-     </div>
-  <% end %>
+<div class="items-sell-contents">
+  <header class="items-sell-header">
+    <%# JavaScriptを読み込む設定。対象：item_price.js %>
+    <script src="item_price.js"></script>
+    <%= link_to image_tag('tasting_logo_black.png' , size: '250x80'), "root_path" %>
+  </header>
+
+  <div class="items-sell-main">
+    <h2 class="items-sell-title">製品の情報を入力</h2>
+    <%# 製品画像 %>
+    <%= form_with model: @product, local: true do |f|%>
+
+      <%= render 'shared/error_messages', model: f.object %>
+    
+      <div class="img-upload">
+        <div class="weight-bold-text">
+          製品画像
+          <span class="indispensable">必須</span>
+        </div>
+        <div class="click-upload">
+          <p>
+            クリックしてファイルをアップロード
+          </p>
+          <%= f.file_field :pd_image, id:"pd-image" %>
+        </div>
+      </div>
+      
+      <%# 製品名＆説明 %>
+      <div class="new-items">
+        <div class="weight-bold-text">
+          製品名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :pd_name, class:"items-text", id:"pd-name", placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
+        <div class="items-explain">        
+          <div class="weight-bold-text">
+            製品の説明
+            <span class="indispensable">必須</span>
+          </div>
+          <%= f.text_area :pd_info, class:"items-text", id:"pd-info", placeholder:"商品の説明（必須 1,000文字まで）（色、素材、重さ、改善点、注意点など）例）着心地を改善するため軽量素材を採用しています。ファッション性にもこだわり肌寒い時期に合わせた製品となっています。" ,rows:"7" ,maxlength:"1000" %>
+        </div>
+      </div>
+
+      <div class="items-detail">
+        <div class="weight-bold-text">商品の詳細</div>
+          <div class="form">
+
+            <div class="weight-bold-text">
+              カテゴリー
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.collection_select(:pd_category_id, PdCategory.all, :id, :name, {}, {class:"select-box", id:"pd-category"}) %>
+
+            <div class="weight-bold-text">
+              出品数
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :pd_stock, id:"pd-stock" %>
+
+            <div class="weight-bold-text">
+              評価報酬額（500¥〜）
+              <span class="indispensable">必須</span>
+            </div>
+            <%= f.text_field :pd_review_reward, id:"pd-review-reward" %>
+          </div>
+        </div>
+       <div class="sell-btn-contents">
+          <%= f.submit "出品する" ,class:"sell-btn" %>
+          <%=link_to 'もどる', root_path, class:"back-btn" %>
+        </div>
+      </div>
+    <% end %>
+    <footer class="items-sell-footer">
+    <ul class="menu">
+      <li><a href="#">プライバシーポリシー</a></li>
+      <li><a href="#">TASTING利用規約</a></li>
+      <li><a href="#">特定商取引に関する表記</a></li>
+    </ul>
+    <%= link_to image_tag('tasting_logo_black.png' , size: '185x50'), "/" %>
+    <p class="inc">
+      ©︎TASTING,Inc.
+    </p>
+</footer>
+  </div>
+</div>
+
+
+
+    

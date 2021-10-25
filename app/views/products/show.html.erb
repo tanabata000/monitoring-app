@@ -5,17 +5,16 @@
     <h2 class="name">
       <%= @product.pd_name %>
     </h2>
+    
     <div class="item-img-content">
       <%= image_tag @product.pd_image ,class:"item-box-img" %>
-      
-      <div class="sold-out">
-      <%# 商品が売れている場合は、sold outを表示 %>
-      <%# if @product.test_product_info.tester_id == current_tester %>
-        <%# <span>Sold Out!!</span> %>
-      <%# end %>
-      </div>    
-
+        <% if TestProductInfo.exists?(product_id: @product, tester_id: current_tester) %>
+          <div class="sold-out">
+            <span>テスト済み!!</span>
+          </div> 
+        <% end %>
     </div>
+
     <div class="item-price-box">
       <span class="item-price">
         ¥ <%= @product.pd_review_reward %>
@@ -31,21 +30,25 @@
         <% if TestProductInfo.exists?(product_id: @product, tester_id: current_tester) %>
           <%# 未評価の場合 %>
           <% unless Review.exists?(product_id: @product, tester_id: current_tester) %>
-            <%= link_to "評価する", new_test_product_info_review_path(@test_product_info.id), method: :get, class:"product-red-btn"%>
+            <%= link_to "評価する", new_test_product_info_review_path(@test_product_info.id), method: :get, class:"item-red-btn"%>
           <% end %>
         <%# 在庫がまだある場合 %>
         <% elsif @product_count >= 1 %>  
-          <%= link_to "テスト申請画面に進む", new_product_test_product_info_path(@product.id), method: :get, class:"product-red-btn"%> 
+          <%= link_to "テスト申請画面に進む", new_product_test_product_info_path(@product.id), method: :get, class:"item-red-btn"%> 
         <% end %>
       <% end %>
 
       <%# 企業がログイン状態 ＆ 企業が出品した製品の場合 %>
       <% if company_signed_in? && current_company == @product.company %>
-        <%= link_to "レビュー評価ページ", test_product_info_review_on_reviews_path(@test_product_info), method: :get, class:"product-red-btn"%>
+        <%if @test_product_infos.present? %>
+        <%= link_to "企業用：レビュー評価ページ", test_product_info_review_on_reviews_path(@test_product_info.id), method: :get, class:"item-bk-btn"%>
+        <% end %>
       <% end %>
 
     <div class="item-explain-box">
-      <span><%= @product.pd_info %></span>
+      <p>
+        <span><%= @product.pd_info %></span>
+      </p>
     </div>
     <table class="detail-table">
       <tbody>
