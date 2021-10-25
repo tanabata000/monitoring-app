@@ -4,6 +4,7 @@ class ReviewOnReviewsController < ApplicationController
     @product = @test_product_info.product_id
     @tester = @test_product_info.tester_id
     @reviews = Review.where(product_id: @product).order("created_at DESC")
+    @review = Review.find_by(test_product_info: @test_product_info, tester_id:@tester)
     # @reviews = Review.find_by(reviews)
   end
 

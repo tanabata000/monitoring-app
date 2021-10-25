@@ -16,11 +16,13 @@
     </div>
 
     <div class="item-price-box">
+      <b><%= "評価報酬金額" %></b>
       <span class="item-price">
-        ¥ <%= @product.pd_review_reward %>
+        <%= "¥ #{@product.pd_review_reward}" %>
       </span>
+      <b><%= "依頼企業" %></b>
       <span class="item-postage">
-        <%= @product.company.company_name %>
+        <%= "#{@product.company.company_name}" %>
       </span>
     </div>
   
@@ -45,11 +47,13 @@
         <% end %>
       <% end %>
 
-    <div class="item-explain-box">
-      <p>
-        <span><%= @product.pd_info %></span>
-      </p>
-    </div>
+      <div class="item-info">  
+        <%= "商品説明" %>
+      </div>
+      <div class="item-explain-box">  
+        <%= @product.pd_info %>
+      </div>
+
     <table class="detail-table">
       <tbody>
         <tr>

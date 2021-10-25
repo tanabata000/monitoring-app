@@ -51,12 +51,21 @@
 .item-price-box>.item-price {
   font-size: 4vh;
   font-weight: bold;
+  color: #ff0d00;
 }
 
 .item-price-box>.item-postage {
   font-size: 16px;
 }
 
+.item-info {
+  font-size: 4vh;
+  font-weight: bold;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
 
 .item-red-btn {
   text-align: center;
@@ -92,9 +101,17 @@
 }
 
 .item-explain-box {
+  white-space: pre-line;
+  word-wrap: break-word;
+}
+
+.item-info {
+  font-size: 4vh;
+  font-weight: bold;
   font-size: 18px;
-  margin: 40px 0px;
-  overflow-wrap: anywhere;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 
 .detail-table {

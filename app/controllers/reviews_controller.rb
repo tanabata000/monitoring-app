@@ -22,7 +22,7 @@ class ReviewsController < ApplicationController
     @tester = @test_product_info.tester_id
     @review = Review.new(review_params)
     if @review.save
-      redirect_to root_path
+      redirect_to controller: :products, action: :show, id: @product
     else
       render :new
     end

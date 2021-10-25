@@ -1,6 +1,6 @@
 <mxfile host="65bd71144e">
     <diagram id="tXXJamdvoFfJXyWj0aLa" name="ページ1">
-        <mxGraphModel dx="1185" dy="859" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+        <mxGraphModel dx="596" dy="1227" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
             <root>
                 <mxCell id="0"/>
                 <mxCell id="1" parent="0"/>
@@ -11,16 +11,16 @@
                     <mxGeometry y="26" width="200" height="214" as="geometry"/>
                 </mxCell>
                 <mxCell id="10" value="review" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="600" y="480" width="200" height="160" as="geometry"/>
+                    <mxGeometry x="520" y="480" width="200" height="160" as="geometry"/>
                 </mxCell>
-                <mxCell id="11" value="product （外部キー制約）&#10;user （外部キー制約）&#10;evaluation point&#10;good_review&#10;bad_review&#10;opinion_request&#10;review_category_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="10" vertex="1">
+                <mxCell id="11" value="test_product_info（外部キー制約）&#10;product（外部キー制約）&#10;tester（外部キー制約）&#10;good_review&#10;bad_review&#10;opinion_request" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="10" vertex="1">
                     <mxGeometry y="26" width="200" height="134" as="geometry"/>
                 </mxCell>
                 <mxCell id="54" value="tester" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="600" y="160" width="200" height="240" as="geometry"/>
+                    <mxGeometry x="520" y="160" width="200" height="250" as="geometry"/>
                 </mxCell>
-                <mxCell id="55" value="email（ユニーク制約）&#10;encryptedpassword&#10;nickname&#10;last_name&#10;first_name&#10;last_name_kana&#10;first_name_kana&#10;birth_date&#10;sex_id&#10;postal_code_id&#10;city&#10;address&#10;building&#10;phone_number" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="54" vertex="1">
-                    <mxGeometry y="26" width="200" height="214" as="geometry"/>
+                <mxCell id="55" value="nickname&#10;email（ユニーク制約）&#10;encryptedpassword&#10;last_name&#10;first_name&#10;last_name_kana&#10;first_name_kana&#10;sex_id&#10;birth_date_id&#10;postal_code_id&#10;prefecture_id&#10;city&#10;address&#10;building&#10;phone_number" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="54" vertex="1">
+                    <mxGeometry y="26" width="200" height="224" as="geometry"/>
                 </mxCell>
                 <mxCell id="56" value="product" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
                     <mxGeometry x="40" y="480" width="200" height="160" as="geometry"/>
@@ -28,52 +28,74 @@
                 <mxCell id="57" value="company（外部キー制約）&#10;pd_name&#10;pd_info&#10;pd_category_id&#10;pd_stock&#10;pd_review_reward" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="56" vertex="1">
                     <mxGeometry y="26" width="200" height="134" as="geometry"/>
                 </mxCell>
-                <mxCell id="61" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.005;entryY=0.404;entryDx=0;entryDy=0;entryPerimeter=0;endSize=20;startSize=20;" parent="1" target="11" edge="1">
+                <mxCell id="61" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.005;entryY=0.713;entryDx=0;entryDy=0;entryPerimeter=0;endSize=10;startSize=10;exitX=1.008;exitY=0.713;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" target="11" edge="1" source="57">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="242" y="560" as="sourcePoint"/>
                         <mxPoint x="418.2" y="629.14" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="62" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=20;startSize=20;exitX=0.5;exitY=0.998;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="55" target="10" edge="1">
+                <mxCell id="62" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=10;startSize=10;exitX=0.494;exitY=0.996;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="55" target="10" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="700" y="281" as="sourcePoint"/>
                         <mxPoint x="669" y="379.996" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="63" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=20;startSize=20;exitX=0.498;exitY=1.002;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="3" target="56" edge="1">
+                <mxCell id="63" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.5;entryY=0;entryDx=0;entryDy=0;endSize=10;startSize=10;exitX=0.498;exitY=1.002;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="3" target="56" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="140" y="283" as="sourcePoint"/>
                         <mxPoint x="549" y="329.996" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="64" value="tester_rank" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
-                    <mxGeometry x="320" y="200" width="200" height="160" as="geometry"/>
+                <mxCell id="68" value="test_product_infos" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="480" width="200" height="70" as="geometry"/>
                 </mxCell>
-                <mxCell id="65" value="tester（外部キー制約）&#10;rank_id&#10;point" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="64" vertex="1">
-                    <mxGeometry y="26" width="200" height="134" as="geometry"/>
-                </mxCell>
-                <mxCell id="67" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;endSize=20;startSize=20;exitX=0.002;exitY=0.438;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="55" edge="1">
-                    <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="580" y="279" as="sourcePoint"/>
-                        <mxPoint x="519" y="279" as="targetPoint"/>
-                    </mxGeometry>
-                </mxCell>
-                <mxCell id="68" value="test_product_infos" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" vertex="1" parent="1">
-                    <mxGeometry x="320" y="440" width="200" height="70" as="geometry"/>
-                </mxCell>
-                <mxCell id="69" value=" product（外部キー制約）&#10; tester（外部キー制約）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" vertex="1" parent="68">
+                <mxCell id="69" value=" product（外部キー制約）&#10; tester（外部キー制約）" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="68" vertex="1">
                     <mxGeometry y="26" width="200" height="44" as="geometry"/>
                 </mxCell>
-                <mxCell id="70" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=-0.011;entryY=0.291;entryDx=0;entryDy=0;endSize=20;startSize=20;entryPerimeter=0;exitX=1.014;exitY=0.013;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="57" target="69">
+                <mxCell id="70" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0;entryY=0.318;entryDx=0;entryDy=0;endSize=10;startSize=10;entryPerimeter=0;exitX=1.005;exitY=0.103;exitDx=0;exitDy=0;exitPerimeter=0;" parent="1" source="57" target="69" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="280" y="440" as="sourcePoint"/>
                         <mxPoint x="150" y="490" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
-                <mxCell id="71" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=1.009;entryY=0.132;entryDx=0;entryDy=0;endSize=20;startSize=20;entryPerimeter=0;exitX=-0.006;exitY=0.807;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="55" target="69">
+                <mxCell id="71" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0.75;entryY=0;entryDx=0;entryDy=0;endSize=10;startSize=10;exitX=0.141;exitY=1.003;exitDx=0;exitDy=0;exitPerimeter=0;edgeStyle=orthogonalEdgeStyle;" parent="1" source="55" target="68" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
                         <mxPoint x="489.99999999999994" y="408.94199999999995" as="sourcePoint"/>
                         <mxPoint x="565" y="380.0040000000001" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="72" value="review_on_review" style="swimlane;fontStyle=0;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;align=center;fontSize=14;" parent="1" vertex="1">
+                    <mxGeometry x="280" y="10" width="200" height="160" as="geometry"/>
+                </mxCell>
+                <mxCell id="73" value="company（外部キー制約）&#10;review（外部キー制約）&#10;tester（外部キー制約）&#10;review_on_review_id" style="text;strokeColor=none;fillColor=none;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontSize=12;" parent="72" vertex="1">
+                    <mxGeometry y="26" width="200" height="134" as="geometry"/>
+                </mxCell>
+                <mxCell id="77" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;entryX=0;entryY=0.418;entryDx=0;entryDy=0;endSize=10;startSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;edgeStyle=orthogonalEdgeStyle;entryPerimeter=0;" edge="1" parent="1" source="2" target="73">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="139.99999999999994" y="68.94199999999995" as="sourcePoint"/>
+                        <mxPoint x="214.99999999999994" y="40.004000000000076" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="78" value="" style="fontSize=12;html=1;endArrow=ERoneToMany;startArrow=ERmandOne;endSize=10;startSize=10;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=1.004;entryY=0.418;entryDx=0;entryDy=0;entryPerimeter=0;edgeStyle=orthogonalEdgeStyle;" edge="1" parent="1" source="54" target="73">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="470" y="97" as="sourcePoint"/>
+                        <mxPoint x="670" y="40" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="79" value="" style="edgeStyle=orthogonalEdgeStyle;fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=1.008;entryY=0.149;entryDx=0;entryDy=0;entryPerimeter=0;endSize=10;startSize=10;" edge="1" parent="1" source="11" target="73">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="727" y="480" as="sourcePoint"/>
+                        <mxPoint x="827" y="380" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="760" y="573"/>
+                            <mxPoint x="760" y="56"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="80" value="" style="fontSize=12;html=1;endArrow=ERmandOne;startArrow=ERmandOne;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1.008;entryY=0.314;entryDx=0;entryDy=0;entryPerimeter=0;endSize=10;startSize=10;" edge="1" parent="1" source="10" target="69">
+                    <mxGeometry width="100" height="100" relative="1" as="geometry">
+                        <mxPoint x="730" y="583" as="sourcePoint"/>
+                        <mxPoint x="491.6" y="65.96600000000001" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
             </root>

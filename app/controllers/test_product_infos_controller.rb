@@ -9,7 +9,8 @@ class TestProductInfosController < ApplicationController
     @product = Product.find(params[:product_id])
     @test_product_info = TestProductInfo.new(test_product_info_params)
     if @test_product_info.save
-      redirect_to root_path
+      # productsコントローラのshowアクション,[:id]は製品のidを使用しリダイレクト
+      redirect_to controller: :products, action: :show, id: @product.id
     else
       render :new
     end

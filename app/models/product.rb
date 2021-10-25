@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   # アソシエーション設定
   belongs_to :company
   has_many :reviews
-  has_one :test_product_info
+  has_many :test_product_infos
   
   # Active Storageのアソシエーション設定
   has_one_attached :pd_image
