@@ -1,37 +1,36 @@
-<div class="review-main">
-<%= form_with model: @review_on_review, url: test_product_info_review_on_reviews_path, method: :post, class: 'registration-main', local: true do |f| %>
-  <%= render 'shared/error_messages', model: f.object %>
-  <%= "#{@tester.nickname}さんの評価" %>
+<body>
+  <div class="review_on_review_new_body">
+    <%= form_with model: @review_on_review, url: test_product_info_review_on_reviews_path, method: :post,class: 'review_on_review_new_main', local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <%= "#{@tester.nickname}さんの評価" %>
 
-    <table class="table">
-      <tbody>
-        <div class="weight-bold-text">良い点
-        <span class="indispensable">必須</span>
-        </div>
-        <div class="review_text"><%= @review.good_review %></div>
+      <table class="table">
+        <tbody>
+          <div class="weight-bold-text">良い点
+          <span class="indispensable">必須</span>
+          </div>
+          <div class="review_on_review_new_review_text"><%= @review.good_review %></div>
+          
+                    
+          <div class="weight-bold-text">悪い点
+          <span class="indispensable">必須</span>
+          </div>
+          <div class="review_on_review_new_review_text"><%= @review.bad_review %></div>
         
-                  
-        <div class="weight-bold-text">悪い点
-        <span class="indispensable">必須</span>
-        </div>
-        <div class="review_text"><%= @review.bad_review %></div>
-      
-        <div class="weight-bold-text">意見・要望
-        <span class="indispensable">必須</span>
-        </div>
-        <div class="review_text"><%= @review.opinions_requests %></div>
-      </tbody>
-    </table>
+          <div class="weight-bold-text">意見・要望
+          <span class="indispensable">必須</span>
+          </div>
+          <div class="review_on_review_new_review_text"><%= @review.opinions_requests %></div>
+        </tbody>
+      </table>
 
-      <div class='form-text-wrap'>
-        <label class="form-text"><%= "#{@tester.nickname}さんのレビュー評価"%></label>
-      </div>
-      
-        <div class='input-name-wrap'>
+      <div class="review_on_review_new_category">
+          <label class="form-text"><%= "#{@tester.nickname}さんのレビュー評価"%></label>
           <%= f.collection_select(:review_category_id, ReviewCategory.all, :id, :name,  {}, {class:"select-box", id:"review_category"}) %>
-        </div>
-        <div>
-          <%= f.submit "評価する", class: "review_on_rebiew_bk-btn" %>
-        </div>
-      <% end %> 
-</div>
+      </div>
+      <div>
+        <%= f.submit "評価する", class: "review_on_rebiew_bk-btn" %>
+      </div>
+    <% end %> 
+  </div>
+</body>

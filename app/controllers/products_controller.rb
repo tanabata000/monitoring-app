@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   before_action :product_find, except: [:index, :new, :create]
-  before_action :authenticate_tester!, except: [:index, :show]
+  
   def index
     query = "SELECT * FROM products ORDER BY created_at DESC"
     @products = Product.find_by_sql(query)
@@ -28,7 +28,7 @@ class ProductsController < ApplicationController
     if tester_signed_in?
       @test_product_info = TestProductInfo.find_by(product_id:@product.id, tester_id:@tester.id )
     elsif company_signed_in?
-      @test_product_info = TestProductInfo.find(@product.id)
+      @test_product_info = TestProductInfo.find_by(product_id:@product.id)
     end
     @test_product_infos = TestProductInfo.where(product_id:@product.id )
     @review = Review.find_by(test_product_info: @test_product_info)

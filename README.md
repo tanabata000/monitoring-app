@@ -112,14 +112,14 @@ git cloneしてから、ローカルで動作をさせるまでに必要なコ�
 
 
 ## reviews テーブル
-| Column             | Type       | Options                        |
-| ------------------ | ---------- | ------------------------------ |
-| test_product_info  | references | null: false, foreign_key: true |
-| product            | references | null: false, foreign_key: true |
-| tester             | references | null: false, foreign_key: true |
-| good_review        | text       | null: false                    |
-| bad_review         | text       | null: false                    |
-| opinions_requests  | text       | null: false                    |
+| Column             | Type       | Options                                     |
+| ------------------ | ---------- | ------------------------------------------- |
+| test_product_info  | references | null: false, foreign_key: true, unique:true |
+| product            | references | null: false, foreign_key: true              |
+| tester             | references | null: false, foreign_key: true              |
+| good_review        | text       | null: false                                 |
+| bad_review         | text       | null: false                                 |
+| opinions_requests  | text       | null: false                                 |
 ### Association
 - belongs_to :test_product_info
 - belongs_to :product

@@ -1,27 +1,33 @@
- 
-<div class="review-main">
-  <%= form_with model: @review, url: test_product_info_reviews_path, method: :post, class: 'registration-main', local: true do |f| %>
-      <%= render 'shared/error_messages', model: f.object %>
-      <div class="weight-bold-text">
-        良い点
-        <span class="indispensable">必須</span>
-      </div>
-      <%= f.text_area :good_review, class:"review-text", id:"pd-name" %>
+<div class="review-new-body">
+  <%= form_with model: @review, url: test_product_info_reviews_path, method: :post, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
+      <div class="review-new-main">
+            <div class="review-new-text">
+              <div class="review-new-review-title">  
+                良い点
+                <span class="indispensable">必須</span>
+              </div>
+              <%= f.text_area :good_review, class:"review-new-text_area", id:"pd-name" %>
+            </div>
+            <div class="review-new-text">
+              <div class="review-new-review-title">
+                悪い点（改善点）
+                <span class="indispensable">必須</span>
+              </div>
+              <%= f.text_area :bad_review, class:"review-new-text_area", id:"bad-review" %>
+            </div>
 
-
-      <div class="weight-bold-text">
-        悪い点（改善点）
-        <span class="indispensable">必須</span>
+            <div class="review-new-text">
+              <div class="review-new-review-title">
+                意見要望
+              </div>
+              <%= f.text_area :opinions_requests, class:"review-new-text_area", id:"opinions-requests" %>
+            </div>
+            
+            <div class="actions">
+              <%= f.submit "評価する", class: "review-new-red-btn" %>
+            </div>
+        </div>
       </div>
-      <%= f.text_area :bad_review, class:"review-text", id:"bad-review" %>
-      <div class="weight-bold-text">
-        意見要望
-      </div>
-      <%= f.text_area :opinions_requests, class:"review-text", id:"opinions-requests" %>
-
-      <div class="actions">
-        <%= f.submit "評価する", class: "red-btn" %>
-      </div>
-    
   <% end %>
 </div>
