@@ -43,7 +43,7 @@
       <%# 企業がログイン状態 ＆ 企業が出品した製品の場合 %>
       <% if company_signed_in? && current_company == @product.company %>
         <%# if @test_product_infos.exists? %>
-        <%= link_to "企業用：レビュー評価ページ", test_product_info_review_on_reviews_path(@test_product_info.id), method: :get, class:"item-bk-btn"%>
+        <%= link_to "企業用：レビュー評価ページ", test_product_info_review_on_reviews_path(@product.id), method: :get, class:"item-bk-btn"%>
         <%# end %>
       <% end %>
 

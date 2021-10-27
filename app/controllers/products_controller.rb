@@ -26,9 +26,9 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @tester = current_tester
     if tester_signed_in?
-      @test_product_info = TestProductInfo.find_by(product_id:@product.id, tester_id:@tester.id )
+      @test_product_info = TestProductInfo.find_by(product_id:@product, tester_id:@tester )
     elsif company_signed_in?
-      @test_product_info = TestProductInfo.find_by(product_id:@product.id)
+      @test_product_info = TestProductInfo.find_by(product_id:@product)
     end
     @test_product_infos = TestProductInfo.where(product_id:@product.id )
     @review = Review.find_by(test_product_info: @test_product_info)

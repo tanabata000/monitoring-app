@@ -40,6 +40,6 @@ class Company < ApplicationRecord
   validates :company_name_kana, format: { with: kana_valid }
   validates :postal_code, numericality:  {only_integer: true}, length: { is: 7 }
   validates :prefecture_id, numericality: { other_than: 1, message: "を入力してください" }
-  validates :phone_number, numericality:  {only_integer: true}, length: { in: 10..11 }
+  validates :phone_number, numericality:  {in: 10..11}, length: { in: 10..11 }
 end
 
