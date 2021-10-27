@@ -76,7 +76,7 @@ ER図等を添付。
 % cd 保存先ディレクトリ 
 
 # 雛形のアプリケーションをクローン
-% git clone https://github.com/we-b/ajax_app.git 
+% git clone https://github.com/tanabata000/monitoring-app.git
 
 # クローンしたアプリに移動
 % cd ajax_app
