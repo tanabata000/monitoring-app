@@ -75,16 +75,16 @@ ER図等を添付。
 ###　保存先ディレクトリに移動
 % cd 保存先ディレクトリ 
 
-# 雛形のアプリケーションをクローン
+### 雛形のアプリケーションをクローン
 % git clone https://github.com/tanabata000/monitoring-app.git
 
-# クローンしたアプリに移動
-% cd ajax_app
+### クローンしたアプリに移動
+% cd monitoring-app
 
-# Gemをインストール
+### Gemをインストール
 % bundle install
 
-# JavaScriptのパッケージをインストール
+### JavaScriptのパッケージをインストール
 % yarn install
 
 git cloneしてから、ローカルで動作をさせるまでに必要なコマンドを記述。この時、アプリケーション開発に使用した環境を併記することを忘れないこと（パッケージやRubyのバージョンなど）。
