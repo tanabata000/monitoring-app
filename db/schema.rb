@@ -39,12 +39,12 @@ ActiveRecord::Schema.define(version: 2021_10_20_050434) do
     t.string "company_name", null: false
     t.string "company_name_kana", null: false
     t.string "department", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building"
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -111,12 +111,12 @@ ActiveRecord::Schema.define(version: 2021_10_20_050434) do
     t.string "first_name_kana", null: false
     t.integer "sex_id", null: false
     t.date "birth_date", null: false
-    t.integer "postal_code", null: false
+    t.string "postal_code", null: false
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
     t.string "building"
-    t.integer "phone_number", null: false
+    t.string "phone_number", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"

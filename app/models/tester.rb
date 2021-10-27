@@ -20,7 +20,7 @@ class Tester < ApplicationRecord
   # 全角カタカナ
   kana_valid = /\A[ァ-ヶー－]+\z/
   # 郵便番号（全て数字＆7桁）
-  postal_code  = /\A\d{7}\z/
+  postal_code_num  = /\A\d{7}\z/
   # 電話番号（全て数字＆10〜11桁）
   phone_number_num  = /\A\d{10,11}\z/
 
@@ -40,7 +40,7 @@ class Tester < ApplicationRecord
   end
   validates :last_name_kana, format: { with: kana_valid }
   validates :first_name_kana, format: { with: kana_valid }
-  validates :postal_code, numericality:  {only_integer: true}, length: { is: 7 }
+  validates :postal_code, presence: true, format: { with: postal_code_num }
   validates :prefecture_id, numericality: { other_than: 1, message: "を入力してください" }
-  validates :phone_number, numericality:  {only_integer: true}, length: { in: 10..11 }
+  validates :phone_number, format: { with: phone_number_num }
 end
