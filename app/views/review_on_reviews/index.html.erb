@@ -7,13 +7,13 @@
 
 <div class="unassessed_review_list">
   未評価レビューリスト
-</div>
-<% @reviews.each do |review| %>
-  <%# レビュー未評価の場合 %>
-  <% unless ReviewOnReview.exists?(review_id: review.id, tester_id: @tester) %>
-    <div class='review_tester_list'>            
-      <%= link_to "#{@test_product_info.tester.nickname}さんの評価", new_test_product_info_review_on_review_path(@test_product_info.id), method: :get, class: 'review_tester'%>        
-    </div> 
+  <% @reviews.each do |review| %>
+    <%# レビュー未評価の場合 %>
+    <% unless ReviewOnReview.exists?(review_id: @review.id, tester_id: @tester) %>
+      <div class='review_tester_list'>            
+        <%= link_to "#{@test_product_info.tester.nickname}さんの評価", new_test_product_info_review_on_review_path(@test_product_info.id), method: :get, class: 'review_tester'%>        
+      </div> 
+    <% end %>
   <% end %>
-<% end %>
+</div>
 

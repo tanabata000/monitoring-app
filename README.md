@@ -52,20 +52,20 @@ https://docs.google.com/spreadsheets/d/1CfNyX_4VnUcnXG5TP_nwB9TrsbJIqjJT_P_5Gci3
 # 実装した機能についての画像やGIFおよびその説明
 ###　ユーザー管理機能
 アカウントにはテスター用と企業用の2種類があります。
-[テスター新規作成](https://gyazo.com/41af929d2d801a950e587170a54f478c)
-[企業新規作成](https://gyazo.com/2b2a0a5a9fa777f197393ee5f5405301)
+[企業新規作成](https://gyazo.com/6cec1b8d120b052ce60a845e96ecc01b)
+[テスター新規作成](https://gyazo.com/f61f544b6f76c7a23134e68d96ec5ab4)
 ### 製品出品機能（企業ログイン必須）
 企業アカウントにログインすると、製品の出品ができます。
-[製品出品](https://gyazo.com/edb8be9dff77e7ebc6acc0936ff86087)
+[製品出品](https://gyazo.com/abc0285d5037ee8cb431c96a7bd3a37a)
 ### テスト申請機能（テスターログイン必須）
 テスターアカウントにログインすると、製品詳細画面からテスト申請ができます。
-[テスト申請](https://gyazo.com/ad34711d497abadaa1b6847f0f74df63)
+[テスト申請](https://gyazo.com/eccbd45d224e395b3bbca9d4b980cf24)
 ### レビュー機能（テスターログイン必須）
 テスト申請済みの場合、製品レビューが可能となります。
-[製品レビュー](https://gyazo.com/0870aad8c16ede47d3a9e3c780321e4d)
+[製品レビュー](https://gyazo.com/f33b77127c520226bf704264b7eaba0c)
 ### レビュー評価機能（企業ログイン必須）
 レビューを企業側で評価できます。
-[レビュー評価](https://gyazo.com/af46394f72e0e8f0c28d6d4a468abca3)
+[レビュー評価](https://gyazo.com/394a9c995e03516e6483e0a85b6cbfe5)
 
 # 実装予定の機能
 製品出品画面に企業側から運営側へ送金する機能を実装
