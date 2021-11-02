@@ -65,7 +65,7 @@ https://docs.google.com/spreadsheets/d/1CfNyX_4VnUcnXG5TP_nwB9TrsbJIqjJT_P_5Gci3
 [製品レビュー](https://gyazo.com/f33b77127c520226bf704264b7eaba0c)
 ### レビュー評価機能（企業ログイン必須）
 レビューを企業側で評価できます。
-[レビュー評価](https://gyazo.com/394a9c995e03516e6483e0a85b6cbfe5)
+[レビュー評価](https://gyazo.com/d0a2a68696101c840332878e1498b180)
 
 # 実装予定の機能
 製品出品画面に企業側から運営側へ送金する機能を実装
